@@ -1,0 +1,119 @@
+.header-container{
+  width: 100%;
+  background-color: #040e2e;
+  /* background-color: rgb(21, 21, 21); */
+  /* border-bottom: 2px solid white; */
+  position: relative;
+  box-shadow: 0px 1px 15px #344a9c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header{
+  background-color: #040e2e;
+  box-shadow: 0px 1px 15px #344a9c;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 0px 100px;
+  justify-content: space-between;
+  align-items: center;
+  color: aliceblue;
+  z-index: 999;
+}
+
+.navbar{
+  display: flex;
+  gap: 25px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  
+}
+
+.navelements{
+  text-decoration: none;
+  color: rgb(224, 227, 228);
+  padding: 8px 2px;
+}
+
+.activenavlement{
+  text-decoration: none;
+  color: rgb(14, 188, 246);
+  padding: 8px 2px;
+}
+
+.logo1{
+  height: 55px;
+  display: flex;
+  align-items: center;
+}
+
+.logo1 img{
+  height: 90%;
+}
+
+.login-container{
+  display: flex;
+  gap: 20px;
+}
+
+.login-container button{
+  background-color: #17244d;
+  border: 1px solid #6076c4;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer ;
+}
+
+.catalog {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.drop-down {
+  position: absolute;
+  top: 35px;
+  left: -30px;
+  width: 160px;
+  background-color: aliceblue;
+  color: #17244d;
+  display: flex; /* Always keep it as flex */
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  z-index: 1000;
+
+  /* transition state (hidden) */
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.catalog:hover .drop-down {
+  /* transition state (visible) */
+  opacity: 1;
+  transform: translateY(0px);
+  pointer-events: auto;
+}
+
+.subtitle {
+  padding: 6px 10px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.subtitle:hover {
+  background-color: #cecfd1;
+  cursor: pointer;
+}

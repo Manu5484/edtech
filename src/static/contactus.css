@@ -1,0 +1,156 @@
+.contact-wrapper {
+  display: flex;
+  gap: 60px;
+  background-color: #0f172a;
+  padding: 60px 60px;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.contact-left {
+ 
+  border-radius: 10px;
+  padding: 30px 25px;
+  color: #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+.info-item {
+  width: 380px;
+  display: flex;
+  background-color: #1e293b;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 20px;
+  border-radius: 10px;
+  justify-content: space-evenly;
+}
+
+.info-data{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.icon {
+  font-size: 22px;
+  color: #fff;
+}
+
+.info-item h4 {
+  margin: 0;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.info-item p {
+  font-size: 0.9rem;
+  color: #cbd5e0;
+  margin: 0;
+}
+
+.contact-right {
+  flex: 2;
+  min-width: 320px;
+  background-color: #1e293b;
+  border-radius: 10px;
+  padding: 30px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-right h2 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.contact-right p {
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+  color: #cbd5e0;
+}
+
+.form-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.contact-right input,
+.contact-right select,
+.contact-right textarea {
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #334155;
+  background-color: #334155;
+  color: #f1f5f9;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.contact-right input::placeholder,
+.contact-right textarea::placeholder {
+  color: #94a3b8;
+}
+
+.contact-right input:focus,
+.contact-right select:focus,
+.contact-right textarea:focus {
+  border-color: #38bdf8;
+}
+
+.contact-right input,
+.contact-right select {
+  flex: 1;
+}
+
+.contact-right select {
+  max-width: 90px;
+}
+
+.contact-right textarea {
+  resize: none;
+  width: 97%;
+  min-height: 140px;
+  margin-bottom: 20px;
+}
+
+/* BUTTON */
+.contact-right button {
+  width: 100%;
+  padding: 14px;
+  background-color: #facc15;
+  color: #1e293b;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.contact-right button:hover {
+  background-color: #eab308;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .form-row {
+    flex-direction: column;
+  }
+
+  .contact-wrapper {
+    flex-direction: column;
+    padding: 40px 20px;
+  }
+}

@@ -1,0 +1,76 @@
+.verifymailpage{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.otp-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #0f111a;
+  height: 450px;
+  width: 500px;
+  margin: 0 auto;
+  margin-top: 80px;
+  padding-top: 80px;
+  border-radius: 40px;
+}
+
+.otp-container h2 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: aliceblue;
+}
+
+.otp-container p {
+  color: #b0b0b0;
+  margin-bottom: 30px;
+}
+
+.otp-inputs {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.otp-inputs input {
+  width: 55px;
+  height: 55px;
+  font-size: 28px;
+  text-align: center;
+  background-color: #1e2235;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  outline: none;
+}
+
+.verify-btn {
+  background-color: #fbd437;
+  color: black;
+  border: none;
+  padding: 15px 0;
+  width: 420px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+  font-size: 14px;
+}
+
+.footer-links a {
+  color: #c7d5e0;
+  text-decoration: none;
+}
+
+.footer-links .resend-link {
+  color: #30d1ec;
+}
