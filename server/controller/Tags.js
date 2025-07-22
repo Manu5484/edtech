@@ -76,9 +76,9 @@ async function tagBasedCourse(req,res)
 {
   try{
 
-    const {tagId}=req.body;
+    const tagId = req.query.tagId;  
 
-    const coursedetails=await courseModel.findOne({tags:tagId},{name:true,thumbnailUrl:true,
+    const coursedetails=await courseModel.find({tags:tagId},{name:true,thumbnailUrl:true,
     price:true,description:true})
 
     res.status(200).json({

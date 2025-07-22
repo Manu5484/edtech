@@ -1,6 +1,7 @@
 import './App.css';
 import {Routes,Route} from 'react-router-dom'
 import React, { useEffect } from "react";
+import CourseCatalog from './pages/CourseCatalog'; 
 
 import { Home } from './pages/Home';
 import { Main } from './components/Main';
@@ -55,6 +56,7 @@ function App() {
           <Route index element={<Home/>}/>
           <Route path='/signup' element={<Signuppage/>}/>
           <Route path='/login' element={<LoginForm/>} />
+          <Route path="/catalog/:tagId" element={<CourseCatalog />} />
           <Route path='/verifymail' element={<VerifyMail/>} />
           <Route path='/aboutus' element={<About/>} />
           <Route path='/contactus' element={<Contactus/>} />

@@ -9,6 +9,9 @@ import {useSelector} from 'react-redux'
 import { Profiledetails } from './Profiledetails';
 import "../static/header.css"
 import { gettags } from '../apicalls/fetchtags';
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { setTagName } from "../slice/tagSlice";
  
 const Header = () => {
 
@@ -16,8 +19,13 @@ const Header = () => {
   const {profile} =useSelector((state)=> state.profile);
   // const {totalItems} =useSelector((state)=> state.cart);
   const [subCatalog,setSubCatalog]=useState([]);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-
+  const handleTagClick = (tagId, name) => {
+    dispatch(setTagName(name)); // store tag name in Redux
+    navigate(`/catalog/${tagId}`); // dynamic route
+  };
 
   useEffect(() => {
     const fetchTags = async () => {
@@ -43,14 +51,16 @@ const Header = () => {
                 <div className='catalog' key={index}>
                   {navelem.title} 
                   <IoIosArrowDown />
-                  <div className='drop-down'>
-                    {
-                      subCatalog.map((subtitle,index)=>{
-                        return(
-                        <div key={index} className='subtitle'>{subtitle.name}</div>
-                        )
-                      })
-                    }
+                  <div className="drop-down">
+                    {subCatalog.map((subtitle, index) => (
+                      <div
+                        key={index}
+                        className="subtitle"
+                        onClick={() => handleTagClick(subtitle._id, subtitle.name)}
+                      >
+                        {subtitle.name}
+                      </div>
+                    ))}
                   </div>
                 </div>
                 :
