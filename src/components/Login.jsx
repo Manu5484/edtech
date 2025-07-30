@@ -7,6 +7,7 @@ import { setIsloading } from "../slice/loderSlice";
 import {setToken} from '../slice/authSlice'
 import {useNavigate} from 'react-router-dom'
 import Loader from "./Loader";
+import { setProfile } from "../slice/profileSlice";
 
 export default function LoginForm() {
   const dispatch=useDispatch();
@@ -15,35 +16,48 @@ export default function LoginForm() {
   const isloading=useSelector((state)=>state.loader.isloading)
   const navigate=useNavigate(); 
 
-  async function handleLoginSubmit(event) {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    const data = Object.fromEntries(formData);
 
-    dispatch(setIsloading(false));
-    try{
-      const res = await axios.post("http://localhost:4000/api/login", {
-                  email: data.email,
-                  password: data.password,
-                },{
-                  withCredentials: true
-                });
-      if (res.data.success) {
-        dispatch(setToken(res.data.token));
-        localStorage.setItem("token", JSON.stringify(res.data.token));
-        navigate("/dashboard");
+async function handleLoginSubmit(event) {
+  // event.preventDefault();
+  const formData = new FormData(event.target);
+  const data = Object.fromEntries(formData);
+
+  dispatch(setIsloading(true)); 
+  try {
+    const res = await axios.post("http://localhost:4000/api/login", {
+      email: data.email,
+      password: data.password,
+    }, {
+      withCredentials: true,
+    });
+
+    if (res.data.success) {
+      dispatch(setToken(res.data.token));
+      localStorage.setItem("token", JSON.stringify(res.data.token));
+
+      const profileRes = await axios.get("http://localhost:4000/api/alluserdata", {
+        withCredentials: true,
+        headers: {
+          Authorization: `Bearer ${res.data.token}`,
+        },
+      });
+
+      if (profileRes.data.success) {
+        dispatch(setProfile(profileRes.data.userdetails));
+      } else {
+        alert("Failed to fetch user profile");
       }
-    }catch(err)
-    {
-      alert("Error in login: " + err.response?.data?.message);
-    }finally
-    {
-      dispatch(setIsloading(false));
-    }
 
-    console.log("Login Data:", data);
-    formRef.current.reset();
+      navigate("/dashboard");
+    }
+  } catch (err) {
+    alert("Error in login: " + err.response?.data?.message);
+  } finally {
+    dispatch(setIsloading(false));
   }
+
+}
+
 
   return (
     <div>

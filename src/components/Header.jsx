@@ -22,9 +22,11 @@ const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  console.log("user data",profile);
+
   const handleTagClick = (tagId, name) => {
-    dispatch(setTagName(name)); // store tag name in Redux
-    navigate(`/catalog/${tagId}`); // dynamic route
+    dispatch(setTagName(name)); 
+    navigate(`/catalog/${tagId}`); 
   };
 
   useEffect(() => {

@@ -7,7 +7,7 @@ export const Coursecatalogcomp = () => {
   const { tagId } = useParams();
   const { courses } = useSelector((state) => state.courses);
 
-  const { tagName } = useSelector((state) => state.tag); // ⬅️ Get tag name
+  const { tagName } = useSelector((state) => state.tag); 
 
   return (
     <div className="catalog-container">

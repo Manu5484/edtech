@@ -11,7 +11,7 @@ router.post("/login",login);
 
 router.put("/updateprofile",auth,updateProfileDetails);
 router.delete("/deleteaccount",auth,deleteAccount);
-router.get("/alluserdata",allUserdata);
+router.get("/alluserdata",auth,allUserdata);
 
 router.put("/generatepasswordtoken",passwordtoken);
 router.put("/updatepassword",resetpassword);
