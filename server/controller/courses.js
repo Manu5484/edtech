@@ -102,7 +102,7 @@ async function viewCourseDetails(req,res)
 {
   try{
 
-    const {courseId}=req.body;
+    const { courseId } = req.query;
 
     const courseDetails=await courseModel.findById({_id:courseId}).populate({
                                                       path:"educator",

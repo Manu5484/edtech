@@ -19,7 +19,7 @@ async function updateProfileDetails(req,res)
     const userDetails=await userModel.findById(id);
     const profileId=await userDetails.profiledata;
 
-    const updatedProfileDetails=await profileModel.findByIdAndUpdate({profileId},{gender,dob,mobile,about},{new:true});
+    const updatedProfileDetails=await profileModel.findByIdAndUpdate(profileId,{gender,dob,mobile,about},{new:true});
 
     res.status(200).json({
       success:true,
@@ -43,7 +43,7 @@ async function allUserdata(req,res)
 
     const {id}=req.user;
 
-    const userdetails=await userModel.findById(id).populate("profiledata");
+    const userdetails=await userModel.findById(id).populate("profiledata").populate("courses");
 
     res.status(200).json({
       success:true,

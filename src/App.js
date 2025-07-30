@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from 'axios';
 import { jwtDecode } from "jwt-decode";
-
+import  CoursePage  from './pages/CoursePage';
 import CourseCatalog from './pages/CourseCatalog'; 
 import { Home } from './pages/Home';
 import { Main } from './components/Main';
@@ -85,6 +85,7 @@ function App() {
           <Route path='/signup' element={<Signuppage />} />
           <Route path='/login' element={<LoginForm />} />
           <Route path='/catalog/:tagId' element={<CourseCatalog />} />
+          <Route path='/course/:courseId' element={<CoursePage />} />
           <Route path='/verifymail' element={<VerifyMail />} />
           <Route path='/aboutus' element={<About />} />
           <Route path='/contactus' element={<Contactus />} />

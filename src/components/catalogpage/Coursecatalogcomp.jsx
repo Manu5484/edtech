@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "../../static/CourseCatalog.css";
+import {NavLink} from 'react-router-dom';
 
 export const Coursecatalogcomp = () => {
   const { tagId } = useParams();
@@ -27,17 +28,19 @@ export const Coursecatalogcomp = () => {
         {courses.length > 0 ? (
           courses.map((course) => (
             <div className="course-card" key={course._id}>
-              <img
-                className="thumbnail"
-                src={course.thumbnailUrl}
-                alt="course thumbnail"
-              />
-              <h3>{course.name}</h3>
-              <p>{course.description}</p>
-              <div className="course-meta">
-                <span>⭐ {course.ratingAndReviews?.averageRating || "4.5"}</span>
-                <span>₹ {course.price}</span>
-              </div>
+              <NavLink to={`/course/${course._id}`}>
+                <img
+                  className="thumbnail"
+                  src={course.thumbnailUrl}
+                  alt="course thumbnail"
+                />
+                <h3>{course.name}</h3>
+                <p>{course.description}</p>
+                <div className="course-meta">
+                  <span>⭐ {course.ratingAndReviews?.averageRating || "4.5"}</span>
+                  <span>₹ {course.price}</span>
+                </div>
+              </NavLink>
             </div>
           ))
         ) : (

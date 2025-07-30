@@ -1,0 +1,117 @@
+/* src/pages/Dashboard.css */
+.dashboard {
+  padding: 2rem;
+  background-color: #121212;
+  color: #e0e0e0;
+  font-family: 'Segoe UI', sans-serif;
+  min-height: 100vh;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #ffffff;
+}
+
+.profile-card {
+  display: flex;
+  align-items: center;
+  background: #1e1e1e;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 1.5rem;
+  border: 2px solid #444;
+}
+
+.profile-info h3 {
+  margin: 0 0 0.5rem;
+  color: #ffffff;
+}
+
+.profile-info p {
+  margin: 0.2rem 0;
+}
+
+.info-section {
+  background-color: #1e1e1e;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-top: 1rem;
+}
+
+.info-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-field label {
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+}
+
+.info-field input,
+.info-field textarea {
+  background-color: #2a2a2a;
+  border: 1px solid #555;
+  color: #e0e0e0;
+  padding: 0.6rem;
+  border-radius: 6px;
+}
+
+.info-field span {
+  padding: 0.6rem;
+  background-color: #2a2a2a;
+  border-radius: 6px;
+}
+
+.edit-buttons {
+  margin-top: 1.5rem;
+}
+
+.edit-btn,
+.save-btn {
+  padding: 0.6rem 1.2rem;
+  background-color: #2979ff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.logout,
+.delete {
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+}
+
+.logout {
+  background-color: #0066cc;
+}
+
+.delete {
+  background-color: #d32f2f;
+}
