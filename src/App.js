@@ -61,18 +61,18 @@ function App() {
 
         if (expiresIn <= 0) {
           dispatch(logout());
-          navigate("/login");
+          navigate("/");
         } else {
           const timeout = setTimeout(() => {
             dispatch(logout());
-            navigate("/login");
+            navigate("/");
           }, expiresIn);
 
           return () => clearTimeout(timeout);
         }
       } catch (e) {
         dispatch(logout());
-        navigate("/login");
+        navigate("/");
       }
     }
   }, [token, dispatch, navigate]);

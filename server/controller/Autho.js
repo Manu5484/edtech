@@ -167,11 +167,11 @@ async function login(req,res)
 
     if(await bcrypt.compare(password, user.password))
     {
-      const token= jwt.sign(playload,process.env.JWT_KEY,{expiresIn: 10*60});
+      const token= jwt.sign(playload,process.env.JWT_KEY,{expiresIn: 100*60});
       user.token=token;
       user.password=undefined;
       let options={ 
-        expires:new Date(Date.now()+10*60*1000),
+        expires:new Date(Date.now()+100*60*1000),
         secure: false, 
         httpOnly:true,
       }
