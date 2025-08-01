@@ -22,7 +22,7 @@ const CourseCatalog = () => {
       dispatch(clearCourses());
   
       try {
-        const res = await axios.get(`http://localhost:4000/api/tagpage?tagId=${tagId}`);
+        const res = await axios.get(`https://edtech-l9b9.onrender.com/api/tagpage?tagId=${tagId}`);
         console.log(res.data); 
   
         if (res.data.success) {

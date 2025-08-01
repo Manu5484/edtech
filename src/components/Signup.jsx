@@ -20,7 +20,7 @@ export default function SignupForm() {
 
     dispatch(setIsloading(true));
     try {
-      const res = await axios.post("http://localhost:4000/api/getotp", {
+      const res = await axios.post("https://edtech-l9b9.onrender.com/api/getotp", {
         email: data.email,
       });
       

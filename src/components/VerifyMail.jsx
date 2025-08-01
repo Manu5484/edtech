@@ -49,7 +49,7 @@ const VerifyMail = () => {
     }
     dispatch(setIsloading(true));
     try {
-      const res = await axios.post("http://localhost:4000/api/signup", {
+      const res = await axios.post("https://edtech-l9b9.onrender.com/api/signup", {
         ...signupData,
         otp: finialotp,
       });

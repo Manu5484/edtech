@@ -23,7 +23,7 @@ const CoursePage = () => {
       dispatch(clearParticularcourse());
       dispatch(setIsloading(true));
       try {
-        const response = await axios.get(`http://localhost:4000/api/particularcourse?courseId=${courseId}`);
+        const response = await axios.get(`https://edtech-l9b9.onrender.com/api/particularcourse?courseId=${courseId}`);
         if (response.data.success) {
           dispatch(setParticularcourse(response.data.courseDetails));
         } else {

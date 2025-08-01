@@ -35,7 +35,7 @@ export function CourseBuilder() {
         formData.append(key, courseData[key]);
       }
 
-      const res = await axios.post("http://localhost:4000/api/createcourse", formData, {
+      const res = await axios.post("https://edtech-l9b9.onrender.com/api/createcourse", formData, {
         withCredentials: true,
         headers: { "Content-Type": "multipart/form-data" },
       });
@@ -52,7 +52,7 @@ export function CourseBuilder() {
   const handleCreateSession = async () => {
     try {
       const res = await axios.post(
-        "http://localhost:4000/api/createsession",
+        "https://edtech-l9b9.onrender.com/api/createsession",
         {
           name: sessionName,
           courseId: createdCourse._id,
@@ -82,7 +82,7 @@ export function CourseBuilder() {
         formData.append(key, subsessionData[key]);
       }
 
-      const res = await axios.post("http://localhost:4000/api/createsubsession", formData, {
+      const res = await axios.post("https://edtech-l9b9.onrender.com/api/createsubsession", formData, {
         withCredentials: true,
         headers: { "Content-Type": "multipart/form-data" },
       });

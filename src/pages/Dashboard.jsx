@@ -14,7 +14,7 @@ export function Dashboard() {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await axios.get("http://localhost:4000/api/alluserdata", { withCredentials: true });
+        const res = await axios.get("https://edtech-l9b9.onrender.com/api/alluserdata", { withCredentials: true });
         if (res.data.success) {
           dispatch(setProfile(res.data.userdetails));
           setFormData(res.data.userdetails.profiledata);
@@ -36,7 +36,7 @@ export function Dashboard() {
 
     const handleSave = async () => {
       try {
-        const res = await axios.put("http://localhost:4000/api/updateprofile", formData, {
+        const res = await axios.put("https://edtech-l9b9.onrender.com/api/updateprofile", formData, {
           withCredentials: true
         });
     
@@ -55,7 +55,7 @@ export function Dashboard() {
 
   const handleDelete = async () => {
     try {
-      await axios.delete("http://localhost:4000/api/deleteaccount", { withCredentials: true });
+      await axios.delete("https://edtech-l9b9.onrender.com/api/deleteaccount", { withCredentials: true });
       dispatch(clearProfile());
       dispatch(logout());
     } catch (err) {

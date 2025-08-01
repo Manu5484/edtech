@@ -24,7 +24,7 @@ async function handleLoginSubmit(event) {
 
   dispatch(setIsloading(true)); 
   try {
-    const res = await axios.post("http://localhost:4000/api/login", {
+    const res = await axios.post("https://edtech-l9b9.onrender.com/api/login", {
       email: data.email,
       password: data.password,
     }, {
@@ -35,7 +35,7 @@ async function handleLoginSubmit(event) {
       dispatch(setToken(res.data.token));
       localStorage.setItem("token", JSON.stringify(res.data.token));
 
-      const profileRes = await axios.get("http://localhost:4000/api/alluserdata", {
+      const profileRes = await axios.get("https://edtech-l9b9.onrender.com/api/alluserdata", {
         withCredentials: true,
         headers: {
           Authorization: `Bearer ${res.data.token}`,

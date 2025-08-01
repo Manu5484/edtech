@@ -32,7 +32,7 @@ function App() {
     if (localToken) {
       dispatch(setToken(localToken));
 
-      axios.get("http://localhost:4000/api/alluserdata", {
+      axios.get("https://edtech-l9b9.onrender.com/api/alluserdata", {
         headers: {
           Authorization: `Bearer ${localToken}`,
         },
