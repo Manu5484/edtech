@@ -3,8 +3,9 @@ services:
     name: edtech-backend
     env: node
     plan: free
-    buildCommand: cd server && npm install
-    startCommand: cd server && node index.js
+    rootDir: server
+    buildCommand: npm install
+    startCommand: node index.js
     envVars:
       - key: DATABASE_URL
         value: mongodb+srv://manojks2402:8rDECg6NAZkDQSEN@edtech.2c14pay.mongodb.net/EDTech
