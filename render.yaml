@@ -19,3 +19,9 @@ services:
         value: 857963166411891
       - key: CLOUD_SECUR_KEY
         value: ZuTm7onhe1OLGfOzHQL3_KmDoSc
+      - key: MAIL_HOST
+        value: smtp.gmail.com
+      - key: MAIL_USER
+        value: manojks2402@gmail.com
+      - key: MAIL_PASS
+        value: ejmuxyofyewbkazg
