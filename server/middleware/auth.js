@@ -2,37 +2,32 @@ const jwt=require("jsonwebtoken");
 const userModel = require("../model/userModel");
 require("dotenv").config();
 
-async function auth(req,res,next)
-{
-  try{
+const auth = async (req, res, next) => {
+  try {
+    const authHeader = req.headers.authorization;
 
-    const {token}=req.cookies;
-
-    console.log("token at auth middleware : ",token);
-
-    if(!token)
-    {
-      return res.status(400).json({
-        success:false,
-        message:"invalid token",
-        
-      }) 
+    if (!authHeader || !authHeader.startsWith("Bearer ")) {
+      return res.status(401).json({
+        success: false,
+        message: "Unauthorized: No token provided",
+      });
     }
 
-    const decode=jwt.verify(token,process.env.JWT_KEY);
-    req.user=decode;
-    console.log(decode);
-    next();
+    const token = authHeader.split(" ")[1];
+    console.log("Token in header:", token);
 
-  }catch(error)
-  {
-    return res.status(400).json({
-      success:false,
-      message:"unabel to signup",
-      error:error.message
-    }) 
+    const decoded = jwt.verify(token, process.env.JWT_KEY);
+    req.user = decoded;
+    next();
+  } catch (error) {
+    return res.status(401).json({
+      success: false,
+      message: "Invalid token",
+      error: error.message,
+    });
   }
-}
+};
+
 
 function isStudent(req,res,next)
 {
