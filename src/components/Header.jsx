@@ -83,13 +83,15 @@ const Header = () => {
                <button>SignUp</button>
               </NavLink>
             </div>  : 
-              (profile!=="educator")?
+              (profile.accounttype!=="educator")?
               <div className='login-container'>
                 <FaShoppingCart />
                 <Profiledetails/>
               </div>
               :<div className='login-container'>
-                <IoAddCircle />
+                <NavLink to={'/createcourse'}>
+                  <IoAddCircle />
+                </NavLink>
                 <Profiledetails/>
             </div>
               

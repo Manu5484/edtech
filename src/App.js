@@ -19,6 +19,7 @@ import PrivateRoute from './components/PrivateRoute';
 
 import { logout, setToken } from "./slice/authSlice";
 import { setProfile } from "./slice/profileSlice";
+import { CourseBuilder } from './pages/courseBuilder';
 
 function App() {
   const dispatch = useDispatch();
@@ -85,7 +86,8 @@ function App() {
           <Route path='/signup' element={<Signuppage />} />
           <Route path='/login' element={<LoginForm />} />
           <Route path='/catalog/:tagId' element={<CourseCatalog />} />
-          <Route path='/course/:courseId' element={<CoursePage />} />
+          <Route path='/course/:courseId' element={ <PrivateRoute> <CoursePage /> </PrivateRoute>} />
+          <Route path='/createcourse' element={ <PrivateRoute> <CourseBuilder/> </PrivateRoute>} />
           <Route path='/verifymail' element={<VerifyMail />} />
           <Route path='/aboutus' element={<About />} />
           <Route path='/contactus' element={<Contactus />} />
