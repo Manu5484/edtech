@@ -4,8 +4,9 @@ services:
     env: node
     plan: free
     rootDir: server
+    rootDir: server
     buildCommand: npm install
-    startCommand: node index.js
+    startCommand: npm start
     envVars:
       - key: DATABASE_URL
         value: mongodb+srv://manojks2402:8rDECg6NAZkDQSEN@edtech.2c14pay.mongodb.net/EDTech
