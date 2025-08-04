@@ -8,7 +8,7 @@ const Intro = () => {
     <div className='intro'>
       <button className='becomeinstructor'>Become an Instructor <FaArrowRight /></button>
       <h2 className='heading'>Empower Your Coding skill </h2>
-      <div className='description'>with our online coding courses , ypu can learn at your own pace , from any where in the wprld and get access to the resource , including hands on projects an dquizes etc..</div>
+      <div className='description'>With our online coding courses, you can learn at your own pace from anywhere in the world, and gain access to valuable resources including hands-on projects, quizzes, and more.</div>
       <div className='learnmorecontainer'>
         <NavLink to={'/signup'}>
           <button className='primarybutton'>Learn more</button>
