@@ -54,15 +54,19 @@ const Header = () => {
                   {navelem.title} 
                   <IoIosArrowDown />
                   <div className="drop-down">
-                    {subCatalog.map((subtitle, index) => (
-                      <div
-                        key={index}
-                        className="subtitle"
-                        onClick={() => handleTagClick(subtitle._id, subtitle.name)}
-                      >
-                        {subtitle.name}
-                      </div>
-                    ))}
+                    {subCatalog.length === 0 ? (
+                      <div>Loading..</div>
+                    ) : (
+                      subCatalog.map((subtitle, index) => (
+                        <div
+                          key={index}
+                          className="subtitle"
+                          onClick={() => handleTagClick(subtitle._id, subtitle.name)}
+                        >
+                          {subtitle.name}
+                        </div>
+                      ))
+                    )}
                   </div>
                 </div>
                 :
