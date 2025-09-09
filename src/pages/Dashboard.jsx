@@ -10,6 +10,8 @@ export function Dashboard() {
   const profile = useSelector((state) => state.profile.profile);
   const [editMode, setEditMode] = useState(false);
   const [formData, setFormData] = useState({ gender: "", dob: "", mobile: "", about: "" });
+  const token = useSelector((state) => state.auth.token);
+
 
   useEffect(() => {
     const fetchProfile = async () => {

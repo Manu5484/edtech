@@ -14,6 +14,7 @@ import "../static/coursebuilder.css";
 export function CourseBuilder() {
   const dispatch = useDispatch();
   const [step, setStep] = useState("course");
+  const token = useSelector((state) => state.auth.token);
 
   const {
     courseData,
