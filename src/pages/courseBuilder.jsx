@@ -37,7 +37,10 @@ export function CourseBuilder() {
 
       const res = await axios.post("https://edtech-l9b9.onrender.com/api/createcourse", formData, {
         withCredentials: true,
-        headers: { "Content-Type": "multipart/form-data" },
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
+        },
       });
 
       if (res.data.success) {
@@ -57,7 +60,8 @@ export function CourseBuilder() {
           name: sessionName,
           courseId: createdCourse._id,
         },
-        { withCredentials: true }
+        { withCredentials: true,
+          headers: { "Content-Type": "multipart/form-data" } }
       );
 
       if (res.data.success) {
@@ -84,8 +88,11 @@ export function CourseBuilder() {
 
       const res = await axios.post("https://edtech-l9b9.onrender.com/api/createsubsession", formData, {
         withCredentials: true,
-        headers: { "Content-Type": "multipart/form-data" },
-      });
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
+        },
+        });
 
       if (res.data.success) {
         alert("Subsession created!");

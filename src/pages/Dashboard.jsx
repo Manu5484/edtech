@@ -14,7 +14,11 @@ export function Dashboard() {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await axios.get("https://edtech-l9b9.onrender.com/api/alluserdata", { withCredentials: true });
+        const res = await axios.get("https://edtech-l9b9.onrender.com/api/alluserdata", {  headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        withCredentials: true,
+       });
         if (res.data.success) {
           dispatch(setProfile(res.data.userdetails));
           setFormData(res.data.userdetails.profiledata);
@@ -36,14 +40,22 @@ export function Dashboard() {
 
     const handleSave = async () => {
       try {
-        const res = await axios.put("https://edtech-l9b9.onrender.com/api/updateprofile", formData, {
-          withCredentials: true
-        });
+        const token = JSON.parse(localStorage.getItem("token")); // or use Redux state
+        const res = await axios.put(
+          "https://edtech-l9b9.onrender.com/api/updateprofile",
+          formData,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+            withCredentials: true,
+          }
+        );
     
         if (res.data.success) {
           dispatch(setProfile({
             ...profile,
-            profiledata: res.data.updatedProfileDetails
+            profiledata: res.data.updatedProfileDetails,
           }));
           setEditMode(false);
         }
@@ -52,10 +64,15 @@ export function Dashboard() {
       }
     };
     
+    
 
   const handleDelete = async () => {
     try {
-      await axios.delete("https://edtech-l9b9.onrender.com/api/deleteaccount", { withCredentials: true });
+      await axios.delete("https://edtech-l9b9.onrender.com/api/deleteaccount", {  headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      withCredentials: true,
+     });
       dispatch(clearProfile());
       dispatch(logout());
     } catch (err) {
