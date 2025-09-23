@@ -62,7 +62,10 @@ export function CourseBuilder() {
           courseId: createdCourse._id,
         },
         { withCredentials: true,
-          headers: { "Content-Type": "multipart/form-data" } }
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "multipart/form-data",
+          }, }
       );
 
       if (res.data.success) {
