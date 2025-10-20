@@ -1,4 +1,3 @@
-module.exports = mongoose.model("otpModel", otpSchema);
 const mongoose = require("mongoose");
 const mailSender = require("../utile/mailSender"); // Make sure this path is correct
 
