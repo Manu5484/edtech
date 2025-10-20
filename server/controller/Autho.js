@@ -5,52 +5,49 @@ const profileModel = require("../model/profileModel");
 const bcrypt=require("bcrypt");
 const jwt=require("jsonwebtoken");
 
-async function generateotp(req,res)
-{
-  try{
-    const {email}=req.body;
-  if(!email)
-  {
-    return res.status(400).json({
-      success:false,
-      message:"email not found"
-    }) 
-  }
+async function generateotp(req, res) {
+  try {
+    console.log("--- generateotp function triggered ---"); // Add this log
+    const { email } = req.body;
+    if (!email) {
+      return res.status(400).json({
+        success: false,
+        message: "email not found",
+      });
+    }
 
-  const existinguser=await userModel.findOne({email});
-  if(existinguser)
-  {
-    return res.status(400).json({
-      success:false,
-      message:"user alredy exixst"
-    }) 
-  }
+    const existinguser = await userModel.findOne({ email });
+    if (existinguser) {
+      return res.status(400).json({
+        success: false,
+        message: "user already exists",
+      });
+    }
 
-  const otp=otpgenerator.generate(6,{
-    upperCaseAlphabets:false,
-    lowerCaseAlphabets:false,
-    specialChars:false
-  })
+    const otp = otpgenerator.generate(6, {
+      upperCaseAlphabets: false,
+      lowerCaseAlphabets: false,
+      specialChars: false,
+    });
 
-  const savedotp=await otpModel.create({email,otp});
+    console.log("Attempting to create OTP in database...");
+    const savedotp = await otpModel.create({ email, otp });
+    console.log("OTP created successfully in DB, email should have been sent.");
 
-  console.log(savedotp);
-  res.status(200).json({
-    success:true,
-    message:'otp sent successfully',
-    savedotp
-  })
+    return res.status(200).json({
+      success: true,
+      message: 'otp sent successfully',
+      savedotp
+    });
 
-  }
-  catch(error)
-  {
+  } catch (error) {
+    // MODIFICATION: Log the full error before sending the response.
+    console.error("!!! ERROR CAUGHT IN generateotp controller !!!:", error);
     return res.status(500).json({
       success: false,
       message: "An error occurred while sending the OTP. Please try again later.",
     });
-    console.log(error.message);
   }
-  
 }
 
 async function signup(req,res)
