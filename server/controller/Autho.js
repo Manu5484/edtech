@@ -44,6 +44,10 @@ async function generateotp(req,res)
   }
   catch(error)
   {
+    return res.status(500).json({
+      success: false,
+      message: "An error occurred while sending the OTP. Please try again later.",
+    });
     console.log(error.message);
   }
   
